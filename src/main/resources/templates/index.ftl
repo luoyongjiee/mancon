@@ -19,8 +19,12 @@
 
 </head>
 <body>
-<input type="button" id="btn" name="btn" value="btn">
 
+
+<form action="/mc/sms/upload" method="post" enctype="multipart/form-data" >
+    上传: <input id="file" name="file" type="file" />
+    <input type="submit" value="submit">
+</form>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="/mc/static/jquery/jquery.min.js"></script>
