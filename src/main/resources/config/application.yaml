@@ -1,0 +1,4 @@
+server:
+  contextPath: /mc
+spring:
+  application.name: mc
