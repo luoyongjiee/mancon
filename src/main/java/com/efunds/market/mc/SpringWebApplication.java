@@ -2,18 +2,20 @@ package com.efunds.market.mc;
 
 import com.efunds.market.mc.infrastructure.conventer.GsonHttpMessageConverter;
 import com.efunds.market.mc.infrastructure.interceptor.LogInterceptor;
+import com.github.pagehelper.PageHelper;
 import com.google.gson.Gson;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.convert.converter.Converter;
-import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
-import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
-import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.List;
 
@@ -29,6 +31,10 @@ public class SpringWebApplication extends SpringBootServletInitializer {
             "classpath:/static/", "classpath:/public/"};
 
     public static void main(String[] args) {
+
+//        SecurityContextHolder.getContext()
+//                .setAuthentication(new UsernamePasswordAuthenticationToken("user", "N/A",
+//                        AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER")));
         SpringApplication.run(SpringWebApplication.class, args);
     }
 
@@ -71,7 +77,7 @@ public class SpringWebApplication extends SpringBootServletInitializer {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
                 super.addViewControllers(registry);
-                registry.addViewController("/").setViewName("forward:index");
+             //   registry.addViewController("/").setViewName("forward:index");
                 // registry.addViewController("/static/*").setStatusCode(HttpStatus.NOT_FOUND).setViewName("forward:index.html");
             }
 
@@ -108,4 +114,6 @@ public class SpringWebApplication extends SpringBootServletInitializer {
     public StandardServletMultipartResolver standardServletMultipartResolver() {
         return new StandardServletMultipartResolver();
     }
+
+
 }
