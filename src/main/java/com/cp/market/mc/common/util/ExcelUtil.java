@@ -1,12 +1,15 @@
+/*
 package com.cp.market.mc.common.util;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 
+*/
 /**
  * Created by luoqi on 2016/3/27.
- */
+ *//*
+
 public class ExcelUtil {
 
 
@@ -60,3 +63,4 @@ public class ExcelUtil {
     }
 
 }
+*/
